@@ -1,13 +1,13 @@
 provider "aws" {
-  region                   = "eu-central-1"
-  shared_credentials_files = ["/Users/rahulwagh/.aws/credentials"]
+  region                   = "us-east-1"
+  shared_credentials_files = ["/home/bhavna/.aws/credentials"]
 }
 
 resource "aws_instance" "ec2_example" {
 
-    ami = "ami-0767046d1677be5a0"  
+    ami = "ami-0e2c8caa4b6378d8c"  
     instance_type = "t2.micro" 
-    key_name= "key-for-demo-2"
+    key_name= "id_rsa"
     vpc_security_group_ids = [aws_security_group.main.id]
 }
 
@@ -42,7 +42,6 @@ resource "aws_security_group" "main" {
 
 
 resource "aws_key_pair" "deployer" {
-  key_name   = "key-for-demo-2"
-  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDNLgCPc/erVOSUSU7cbyH62zihY6/y7z4ctJnAevELH3QrJGFqHAsFppUkQtIA8lfqrdlZhEi7lS+3KmWRmHyT+qrRXvkabifmtlV79hTIuOQekl8Fw12WvZZDtO1iPkRWyHHN47zSMxn9DMPLQifz1q9RtchXDFFmPy0I4FRJttIGylN9hRLHFl6bqr0A9tEBo24gjfy3qFEzudNiDiVpl7XVe7NkkW2Zjo5pguNPhcNPDNnLb1QspUBLaITpdyIcrF+PJd+x7LEQCN2COnn1KofhyzIwyMo1m+7pdw3Pb40mli43HIhZhitRi6SuVF3Sja8Jbc13chGkmE+bBilN rahul@rahul-HP-ZBook-15-G2"
+  key_name   = "id_rsa"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDeJpsit8MACLsgDZVW+EkuMIqyAQh2c/MrhAf07FbnhKNcGRwTS8/75+mrimgYWYB20octWA/unOya4ffzy2Tp0xP7BgwesMppIdpcxtK4EwYiIKGBlubeLt+KA9jQEOgxWYbffnNqaKGIKn7D55Dlbz75iP4S3FUP63/PyJSi50V/mMYa89J1b+X/Y65ssqi3mFvHZI5Yq8LvsA+v4xkam6T/q6eXD212tRfv54LqoxoMG4Xdf4UcrfwGajGMK4lbeJYyvbLT5qRxzT6qjr0zkmuXlG5P7Q9Mtb0xCOD/mpZstG4I4AEWOXVqPbBSL729wcxLtVACRFJg/01cNk6f bhavna@server.bhavna.local"
 }
-
